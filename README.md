@@ -1073,7 +1073,7 @@
 
     <!-- Navbar -->
     <nav class="navbar" id="navbar">
-        <div class="nav-logo">Əkbər</div>
+        <div class="nav-logo">Dev</div>
         <ul class="nav-links" id="navLinks">
             <li><a href="#hero">Ana Səhifə</a></li>
             <li><a href="#about">Haqqımda</a></li>
