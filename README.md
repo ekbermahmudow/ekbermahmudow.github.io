@@ -7,6 +7,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
+        
         /* ===== RESET & GLOBAL ===== */
         *, *::before, *::after {
             margin: 0;
@@ -1072,7 +1073,7 @@
 
     <!-- Navbar -->
     <nav class="navbar" id="navbar">
-        <div class="nav-logo">ƏM</div>
+        <div class="nav-logo">Əkbər</div>
         <ul class="nav-links" id="navLinks">
             <li><a href="#hero">Ana Səhifə</a></li>
             <li><a href="#about">Haqqımda</a></li>
