@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Əkbər Mahmudov - Proqramçı və Rəqəmsal Həllər Mütəxəssisi">
-    <title>Əkbər Mahmudov | Şəxsi Sayt</title>
-    <link rel="icon" type="image/png" href="https://avatars.githubusercontent.com/u/261281142?v=4">
+    <title>Əkbər Mahmudov | CEH</title>
+
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
@@ -87,10 +87,23 @@
         }
         .hero-text { flex: 1; max-width: 600px; }
         .hero-text .greeting {
-            font-size: 1.1rem; color: #00d4ff; font-weight: 600;
-            letter-spacing: 3px; text-transform: uppercase; margin-bottom: 15px;
+            font-size: 1rem; color: #00d4ff; font-weight: 600;
+            letter-spacing: 2px; text-transform: uppercase; margin-bottom: 25px;
             animation: slideInL 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards; opacity: 0;
+            display: inline-block; padding: 12px 28px; border-radius: 50px;
+            background: linear-gradient(135deg, rgba(0,212,255,0.1), rgba(123,47,247,0.08));
+            border: 1.5px solid rgba(0,212,255,0.2);
+            box-shadow: 0 8px 25px rgba(0,212,255,0.08);
+            position: relative; overflow: hidden;
         }
+        .hero-text .greeting::before {
+            content: '';
+            position: absolute; inset: 0; border-radius: 50px;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
+            animation: shimmer 3s ease-in-out infinite;
+        }
+        @keyframes shimmer { 0%, 100% { transform: translateX(-100%); } 50% { transform: translateX(100%); } }
+        .hero-text .greeting span { position: relative; z-index: 1; }
         .hero-text h1 {
             font-size: 3.5rem; font-weight: 900; line-height: 1.15; margin-bottom: 10px;
             animation: slideInL 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.15s forwards; opacity: 0;
@@ -407,6 +420,67 @@
             .hero-buttons { flex-direction: column; align-items: center; }
             .btn { width: 100%; max-width: 250px; }
         }
+        /* PROJECTS */
+        .projects { position: relative; z-index: 2; }
+        .projects-box {
+            position: relative; z-index: 3; margin: 0 auto; padding: 22px; border-radius: 18px;
+            background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+            border: 1px solid rgba(255,255,255,0.03);
+            box-shadow: 0 10px 40px rgba(0,0,0,0.6);
+            overflow: hidden; max-width: 1220px; width: 100%;
+        }
+        .projects-box::before {
+            content: '';
+            position: absolute; inset: -100%;
+            background: conic-gradient(from 0deg, rgba(123,47,247,0.06), rgba(0,212,255,0.06), rgba(255,45,149,0.04), rgba(123,47,247,0.06));
+            transform: rotate(0deg);
+            animation: slowRotate 12s linear infinite;
+            pointer-events: none; opacity: 0.9;
+        }
+        .projects-box::after {
+            content: '';
+            position: absolute; inset: 0; border-radius: 16px; pointer-events: none;
+            background: linear-gradient(90deg, rgba(255,255,255,0.02), rgba(255,255,255,0)); mix-blend-mode: overlay;
+        }
+        @keyframes slowRotate { to { transform: rotate(360deg); } }
+        .projects-grid { position: relative; z-index: 4; display: grid; grid-template-columns: repeat(auto-fit, minmax(290px, 1fr)); gap: 26px; width: 100%; align-items: stretch; }
+        .repo-card { position: relative; z-index: 3; background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.03); border-radius: 16px; padding: 22px; display: flex; flex-direction: column; gap: 12px; transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.35s ease, border-color 0.25s ease; text-decoration: none; color: inherit; min-height: 220px; }
+        .repo-card:hover { transform: translateY(-18px) rotateY(2deg); box-shadow: 0 25px 70px rgba(0,212,255,0.25), 0 0 30px rgba(123,47,247,0.15); border-color: rgba(0,212,255,0.25); animation: cardFloat 0.6s ease infinite; }
+        .repo-top { display:flex; justify-content:space-between; align-items:center; gap:12px; }
+        .repo-name { font-weight:800; color:#ffffff; font-size:1.05rem; text-decoration:none; max-width:82%; word-break:break-word; }
+        .repo-name:hover { color: #00d4ff; }
+        .repo-desc { color:#bdbdbd; font-size:0.95rem; line-height:1.4; min-height:44px; flex:1; margin-top:8px; display:-webkit-box; -webkit-line-clamp:3; -webkit-box-orient:vertical; overflow:hidden; }
+        .repo-meta { display:flex; gap:16px; align-items:center; color:#9aa6b2; font-size:0.85rem; margin-top:12px; }
+        .repo-badge { position: absolute; top: 14px; right: 14px; display:inline-flex; align-items:center; justify-content:center; gap:6px; padding:6px 10px; border-radius:999px; background: linear-gradient(135deg,#7b2ff7,#00d4ff); color:#fff; font-weight:700; font-size:0.9rem; box-shadow: 0 6px 20px rgba(123,47,247,0.12); border: 2px solid rgba(255,255,255,0.04); }
+        .repo-badge i { font-size:0.9rem; }
+        .projects-empty { text-align:center; color:#888; padding:30px 0; }
+        @keyframes cardFloat { 0%, 100% { transform: translateY(-18px) rotateY(2deg); } 50% { transform: translateY(-25px) rotateY(2deg); } }
+
+        /* MODAL STYLES */
+        .modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.8); z-index: 2000; align-items: center; justify-content: center; backdrop-filter: blur(5px); animation: fadeIn 0.3s ease; }
+        .modal.active { display: flex; }
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+        .modal-content { background: linear-gradient(135deg, rgba(20,20,30,0.95), rgba(15,15,25,0.95)); border: 1px solid rgba(0,212,255,0.15); border-radius: 24px; padding: 40px; max-width: 600px; width: 90%; max-height: 85vh; overflow-y: auto; position: relative; box-shadow: 0 20px 60px rgba(0,212,255,0.2); animation: slideUpModal 0.4s cubic-bezier(0.34, 1.56, 0.64, 1); }
+        @keyframes slideUpModal { from { transform: translateY(50px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
+        .modal-close { position: absolute; top: 20px; right: 20px; background: rgba(255,255,255,0.1); border: none; color: #00d4ff; width: 40px; height: 40px; border-radius: 50%; font-size: 1.5rem; cursor: pointer; transition: all 0.3s ease; display: flex; align-items: center; justify-content: center; }
+        .modal-close:hover { background: #00d4ff; color: #000; transform: rotate(90deg); }
+        .modal h2 { margin-bottom: 25px; font-size: 1.8rem; background: linear-gradient(135deg, #00d4ff, #7b2ff7); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+
+        /* FLOATING ACTION BUTTONS */
+        .fab-container { position: fixed; bottom: 100px; right: 30px; display: flex; flex-direction: column; gap: 12px; z-index: 999; }
+        .fab-btn { width: 55px; height: 55px; border-radius: 50%; border: none; cursor: pointer; display: flex; align-items: center; justify-content: center; font-size: 1.3rem; transition: all 0.3s ease; box-shadow: 0 5px 20px rgba(0,0,0,0.3); }
+        .fab-whatsapp { background: #25D366; color: #fff; }
+        .fab-whatsapp:hover { transform: scale(1.15) translateX(-10px); box-shadow: 0 8px 30px rgba(37, 211, 102, 0.4); }
+        .fab-telegram { background: #0088cc; color: #fff; }
+        .fab-telegram:hover { transform: scale(1.15) translateX(-10px); box-shadow: 0 8px 30px rgba(0, 136, 204, 0.4); }
+        .fab-discord { background: #5865F2; color: #fff; }
+        .fab-discord:hover { transform: scale(1.15) translateX(-10px); box-shadow: 0 8px 30px rgba(88, 101, 242, 0.4); }
+        .fab-label { position: absolute; right: 70px; background: rgba(0,0,0,0.8); color: #fff; padding: 6px 12px; border-radius: 8px; font-size: 0.85rem; white-space: nowrap; opacity: 0; pointer-events: none; transition: opacity 0.3s ease; }
+        .fab-btn:hover .fab-label { opacity: 1; }
+
+        /* SCROLL TRIGGER ANIMATIONS */
+        .scroll-reveal { opacity: 0; transform: translateY(30px); transition: all 0.6s cubic-bezier(0.34, 1.56, 0.64, 1); }
+        .scroll-reveal.active { opacity: 1; transform: translateY(0); }
     </style>
 </head>
 <body>
@@ -414,7 +488,7 @@
     <div class="particles" id="particles"></div>
 
     <nav class="navbar" id="navbar">
-        <div class="nav-logo">Əkbər</div>
+        <div class="nav-logo">Sadəcə Biznes</div>
         <ul class="nav-links" id="navLinks">
             <li><a href="#hero">Ana Səhifə</a></li>
             <li><a href="#about">Haqqımda</a></li>
@@ -430,7 +504,7 @@
     <section class="hero" id="hero">
         <div class="hero-container">
             <div class="hero-text">
-                <p class="greeting">👋 Salam, mən</p>
+                <p class="greeting"><span>sudo -rm -rf "root"</span></p>
                 <h1>Əkbər <span class="hl">Mahmudov</span></h1>
                 <p class="tagline">Proqramçı &amp; Rəqəmsal Həllər Mütəxəssisi</p>
                 <div class="typed-text"><span id="typed-output"></span><span class="cursor"></span></div>
@@ -440,9 +514,9 @@
                 </div>
                 <div class="social-links">
                     <a href="https://github.com/ekbermahmudow" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="GitHub"><i class="fab fa-github"></i></a>
-                    <a href="#" class="social-link" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-                    <a href="#" class="social-link" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-                    <a href="#" class="social-link" aria-label="Telegram"><i class="fab fa-telegram-plane"></i></a>
+                    <a href="https://www.linkedin.com/in/ekber-mahmudov-702854250/" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="https://instagram.com/dtz762" class="social-link" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="https://tiktok.com/@ekbermahmudow" class="social-link" aria-label="Tiktok"><i class="fab fa-tiktok"></i></a>
                 </div>
             </div>
             <div class="hero-image">
@@ -470,12 +544,12 @@
             </div>
             <div class="about-content animate-on-scroll">
                 <h3>Əkbər Mahmudov</h3>
-                <p>Mən texnologiyaya həvəsli, yaradıcı və daim inkişaf edən bir proqramçıyam. Müasir veb texnologiyalar, proqramlaşdırma dilləri və rəqəmsal həllər sahəsində dərin biliklərə sahibəm.</p>
-                <p>Hər bir layihəyə unikal yanaşma ilə yanaşır, keyfiyyətli və istifadəçi dostu məhsullar yaratmağa çalışıram. Komanda işinə böyük dəyər verir, yeni texnologiyaları öyrənməkdən həzz alıram.</p>
+                <p>Mən texnologiya həvəskarı, yaradıcı və daim inkişaf etməyə fokuslanan bir proqramçıyam. Yeni texnologiyaları öyrənmək və tətbiq etmək mənim üçün həm peşəkar, həm də şəxsi motivasiya mənbəyidir. Müasir veb texnologiyaları və proqramlaşdırma dilləri ilə yanaşı, təhlükəsiz və effektiv rəqəmsal həllər yaratmağa önəm verirəm.</p>
+    <p>Kiber təhlükəsizlik və İT sahəsi üzrə təhsil almış, RHCSA (Red Hat Certified System Administrator) və CEH (Certified Ethical Hacker) sertifikatlarına sahibəm. 3 ildən artıq peşəkar təcrübəyə malikəm. Linux server administrasiyası, şəbəkə təhlükəsizliyi, sistemlərin sərtləşdirilməsi (hardening), zəiflik analizi və penetrasiya testləri sahəsində praktik biliklərə sahibəm.</p>
                 <div class="about-stats">
-                    <div class="stat-item"><div class="stat-number" data-count="50">0+</div><div class="stat-label">Layihə</div></div>
-                    <div class="stat-item"><div class="stat-number" data-count="30">0+</div><div class="stat-label">Müştəri</div></div>
-                    <div class="stat-item"><div class="stat-number" data-count="3">0+</div><div class="stat-label">İl Təcrübə</div></div>
+                    <div class="stat-item"><div class="stat-number" data-count="21">0</div><div class="stat-label">Layihə</div></div>
+                    <div class="stat-item"><div class="stat-number" data-count="35">0</div><div class="stat-label">Müştəri</div></div>
+                    <div class="stat-item"><div class="stat-number" data-count="2">0+</div><div class="stat-label">İl Təcrübə</div></div>
                 </div>
             </div>
         </div>
@@ -512,10 +586,52 @@
         <div class="services-grid">
             <div class="service-card animate-on-scroll"><div class="service-icon"><i class="fas fa-laptop-code"></i></div><h3>Veb Sayt Hazırlanması</h3><p>Müasir, responsiv və istifadəçi dostu veb saytlar hazırlayıram. HTML, CSS, JavaScript və React ilə sürətli və gözəl saytlar yaradıram.</p></div>
             <div class="service-card animate-on-scroll"><div class="service-icon"><i class="fas fa-mobile-alt"></i></div><h3>Mobil Tətbiq İnkişafı</h3><p>Android və iOS platformaları üçün mobil tətbiqlər hazırlayıram. İstifadəçi təcrübəsinə fokuslanmış, yüksək performanslı tətbiqlər yaradıram.</p></div>
-            <div class="service-card animate-on-scroll"><div class="service-icon"><i class="fas fa-palette"></i></div><h3>UI/UX Dizayn</h3><p>İstifadəçi interfeysinin dizaynını və istifadəçi təcrübəsini optimallaşdırıram. Figma ilə müasir və cəlbedici dizaynlar yaradıram.</p></div>
             <div class="service-card animate-on-scroll"><div class="service-icon"><i class="fas fa-server"></i></div><h3>Backend İnkişaf</h3><p>Güclü və təhlükəsiz server tərəfi həllər hazırlayıram. API inkişafı, verilənlər bazası idarəetməsi və bulud xidmətləri ilə işləyirəm.</p></div>
             <div class="service-card animate-on-scroll"><div class="service-icon"><i class="fas fa-search"></i></div><h3>SEO Optimallaşdırma</h3><p>Saytınızın axtarış motorlarında üst sıralarda yer alması üçün SEO strategiyaları hazırlayır və tətbiq edirəm.</p></div>
             <div class="service-card animate-on-scroll"><div class="service-icon"><i class="fas fa-headset"></i></div><h3>Texniki Dəstək</h3><p>Layihələriniz üçün davamlı texniki dəstək və təmir xidmətləri təqdim edirəm. 7/24 əlçatan və etibarlı dəstək.</p></div>
+        </div>
+    </section>
+
+    <section class="projects" id="projects">
+        <div class="section-header animate-on-scroll">
+            <h2>GitHub <span class="hl">Layihələrim</span></h2>
+            <div class="section-line"></div>
+            <p>Son və seçilmiş açıq mənbə layihələrimə baxın</p>
+        </div>
+        <div class="section-body">
+            <div class="projects-box animate-on-scroll">
+                <div id="projectsGrid" class="projects-grid">
+                <!-- Static / featured projects (link to your GitHub profile as requested) -->
+                <a class="repo-card" data-feature="true" href="https://github.com/ekbermahmudow" target="_blank" rel="noopener noreferrer">
+                    <div class="repo-top">
+                        <div class="repo-name">Port Listener</div>
+                        <div class="repo-badge"><i class="fas fa-external-link-alt"></i></div>
+                    </div>
+                    <div class="repo-desc">Sürətli TCP/UDP port dinləyici və analiz aləti — şəbəkə hesabatı və port skan modulları ilə.</div>
+                    <div class="repo-meta"><div><i class="fas fa-link"></i> GitHub</div></div>
+                </a>
+
+                <a class="repo-card" data-feature="true" href="https://github.com/ekbermahmudow" target="_blank" rel="noopener noreferrer">
+                    <div class="repo-top">
+                        <div class="repo-name">Netstat Analyzer</div>
+                        <div class="repo-badge"><i class="fas fa-external-link-alt"></i></div>
+                    </div>
+                    <div class="repo-desc">Real-time bağlantı izləmə və proses-port xəritələmə üçün yüngül utilit.</div>
+                    <div class="repo-meta"><div><i class="fas fa-link"></i> GitHub</div></div>
+                </a>
+
+                <a class="repo-card" data-feature="true" href="https://github.com/ekbermahmudow" target="_blank" rel="noopener noreferrer">
+                    <div class="repo-top">
+                        <div class="repo-name">DNS Lock</div>
+                        <div class="repo-badge"><i class="fas fa-external-link-alt"></i></div>
+                    </div>
+                    <div class="repo-desc">DNS sorğularını filtr və bloklama imkanları ilə idarə edən kiçik alət.</div>
+                    <div class="repo-meta"><div><i class="fas fa-link"></i> GitHub</div></div>
+                </a>
+
+                <div class="projects-empty">Dinamik layihələr yüklənir...</div>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -530,12 +646,12 @@
                 <div class="contact-item">
                     <div class="contact-icon"><i class="fas fa-map-marker-alt"></i></div>
                     <span class="contact-label">Ünvan</span>
-                    <span class="contact-value">Azərbaycan, Bakı</span>
+                    <span class="contact-value">Azərbaycan, Kürdəmir</span>
                 </div>
                 <div class="contact-item">
                     <div class="contact-icon"><i class="fas fa-envelope"></i></div>
                     <span class="contact-label">E-poçt</span>
-                    <span class="contact-value">info@ekber.dev</span>
+                    <span class="contact-value">ekber917@bk.ru</span>
                 </div>
                 <a href="https://github.com/ekbermahmudow" target="_blank" rel="noopener noreferrer" class="contact-item">
                     <div class="contact-icon"><i class="fab fa-github"></i></div>
@@ -543,21 +659,48 @@
                     <span class="contact-value">@ekbermahmudow</span>
                 </a>
             </div>
-            <form class="contact-form animate-on-scroll" id="contactForm">
-                <div class="form-row">
-                    <div class="form-group"><input type="text" placeholder="Adınız" required></div>
-                    <div class="form-group"><input type="email" placeholder="E-poçtunuz" required></div>
-                </div>
-                <div class="form-group"><input type="text" placeholder="Mövzu"></div>
-                <div class="form-group"><textarea placeholder="Mesajınız..." required></textarea></div>
-                <button type="submit" class="btn-submit" id="submitBtn"><i class="fas fa-paper-plane"></i> Mesaj Göndər</button>
-            </form>
+            <div class="contact-form animate-on-scroll" style="text-align: center;">
+                <button type="button" class="btn-submit" id="openContactModal" style="background: linear-gradient(135deg, #00d4ff, #7b2ff7); width: 100%; max-width: 300px; margin: 0 auto;"><i class="fas fa-comments"></i> Mesaj Göndər</button>
+            </div>
         </div>
     </section>
 
+    <!-- CONTACT MODAL -->
+    <div class="modal" id="contactModal">
+        <div class="modal-content">
+            <button class="modal-close" id="closeContactModal"><i class="fas fa-times"></i></button>
+            <h2>Mənə Mesaj Göndər</h2>
+            <form id="contactFormModal" class="contact-form">
+                <div class="form-row">
+                    <div class="form-group"><input type="text" id="modalName" placeholder="Adınız" required></div>
+                    <div class="form-group"><input type="email" id="modalEmail" placeholder="E-poçtunuz" required></div>
+                </div>
+                <div class="form-group"><input type="text" id="modalSubject" placeholder="Mövzu" required></div>
+                <div class="form-group"><textarea id="modalMessage" placeholder="Mesajınız..." required></textarea></div>
+                <button type="submit" class="btn-submit" id="submitModalBtn"><i class="fas fa-paper-plane"></i> Göndər</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- FLOATING ACTION BUTTONS -->
+    <div class="fab-container">
+        <a href="https://wa.me/+994515266146" target="_blank" rel="noopener noreferrer" class="fab-btn fab-whatsapp">
+            <i class="fab fa-whatsapp"></i>
+            <span class="fab-label">WhatsApp</span>
+        </a>
+        <a href="https://t.me/ekbermahmudow" target="_blank" rel="noopener noreferrer" class="fab-btn fab-telegram">
+            <i class="fab fa-telegram-plane"></i>
+            <span class="fab-label">Telegram</span>
+        </a>
+        <a href="https://discord.gg/ekimmw" target="_blank" rel="noopener noreferrer" class="fab-btn fab-discord">
+            <i class="fab fa-discord"></i>
+            <span class="fab-label">Discord</span>
+        </a>
+    </div>
+
     <footer>
         <div class="footer-content">
-            <div class="footer-logo">Əkbər Mahmudov</div>
+            <div class="footer-logo">C Y B E R S E C U R İ T Y</div>
             <ul class="footer-links">
                 <li><a href="#hero">Ana Səhifə</a></li>
                 <li><a href="#about">Haqqımda</a></li>
@@ -572,15 +715,18 @@
             </div>
         </div>
         <div class="footer-bottom">
-            <p><span class="heart">&#10084;&#65039;</span> ilə hazırlanıb | Əkbər Mahmudov</p>
+            <p><span class="heart"></span> Git ilə hazırlanıb | Əkbər Mahmudov</p>
             <div class="copyright-badge">
                 <i class="fas fa-shield-alt"></i>
-                &copy; 2024&ndash;2026 Əkbər Mahmudov. Bütün hüquqlar qorunur.
+                &copy; 2024&ndash;2026 Bölgə TV - Bütün hüquqlar qorunur.
             </div>
         </div>
     </footer>
 
     <button class="scroll-top" id="scrollTop" aria-label="Yuxarı qayıt"><i class="fas fa-chevron-up"></i></button>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="script.js"></script>
 
     <script>
     (function(){
@@ -606,7 +752,7 @@
         }
 
         /* TYPING */
-        var phrases = ["Veb Developer 💻", "Proqramçı 🚀", "UI/UX Dizayner 🎨", "Texnologiya Həvəskarı ⚡", "Problem Həll Edən 🧩"];
+        var phrases = ["Certified Ethical Hacker", "Proqramçı", "Sistem Avtomatlaşdırıcı", "Texnologiya Həvəskarı", "Unikal Texniki Problemləri Həll Edən"];
         var pi = 0, ci = 0, del = false;
         var to = document.getElementById("typed-output");
         function typ() {
@@ -728,6 +874,103 @@
                 }, 3000);
             });
         }
+
+        /* MODAL FUNCTIONALITY */
+        var modal = document.getElementById("contactModal");
+        var openBtn = document.getElementById("openContactModal");
+        var closeBtn = document.getElementById("closeContactModal");
+        var modalForm = document.getElementById("contactFormModal");
+        var submitModalBtn = document.getElementById("submitModalBtn");
+
+        if (openBtn) {
+            openBtn.addEventListener("click", function() {
+                modal.classList.add("active");
+                document.body.style.overflow = "hidden";
+            });
+        }
+
+        if (closeBtn) {
+            closeBtn.addEventListener("click", function() {
+                modal.classList.remove("active");
+                document.body.style.overflow = "auto";
+            });
+        }
+
+        modal.addEventListener("click", function(e) {
+            if (e.target === modal) {
+                modal.classList.remove("active");
+                document.body.style.overflow = "auto";
+            }
+        });
+
+        /* EMAILJS INTEGRATION */
+        (function() {
+            var emailScript = document.createElement("script");
+            emailScript.src = "https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/index.min.js";
+            emailScript.onload = function() {
+                if (window.emailjs) {
+                    emailjs.init("YOUR_EMAILJS_PUBLIC_KEY");
+                }
+            };
+            document.head.appendChild(emailScript);
+        })();
+
+        if (modalForm) {
+            modalForm.addEventListener("submit", function(e) {
+                e.preventDefault();
+                var name = document.getElementById("modalName").value;
+                var email = document.getElementById("modalEmail").value;
+                var subject = document.getElementById("modalSubject").value;
+                var message = document.getElementById("modalMessage").value;
+
+                if (window.emailjs) {
+                    submitModalBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Göndərilir...';
+                    submitModalBtn.disabled = true;
+
+                    emailjs.send("YOUR_SERVICE_ID", "YOUR_TEMPLATE_ID", {
+                        from_name: name,
+                        from_email: email,
+                        subject: subject,
+                        message: message
+                    }).then(function() {
+                        submitModalBtn.innerHTML = '<i class="fas fa-check"></i> Uğurlu!';
+                        submitModalBtn.style.background = "linear-gradient(135deg,#00c851,#007e33)";
+                        setTimeout(function() {
+                            submitModalBtn.innerHTML = '<i class="fas fa-paper-plane"></i> Göndər';
+                            submitModalBtn.style.background = "linear-gradient(135deg,#00d4ff,#7b2ff7)";
+                            submitModalBtn.disabled = false;
+                            modalForm.reset();
+                            modal.classList.remove("active");
+                            document.body.style.overflow = "auto";
+                        }, 2000);
+                    }).catch(function(error) {
+                        console.error("EmailJS Error:", error);
+                        submitModalBtn.innerHTML = '<i class="fas fa-exclamation-circle"></i> Xəta!';
+                        submitModalBtn.style.background = "linear-gradient(135deg,#ff6b6b,#cc0000)";
+                        setTimeout(function() {
+                            submitModalBtn.innerHTML = '<i class="fas fa-paper-plane"></i> Göndər';
+                            submitModalBtn.style.background = "linear-gradient(135deg,#00d4ff,#7b2ff7)";
+                            submitModalBtn.disabled = false;
+                        }, 2000);
+                    });
+                } else {
+                    alert("E-poçt xidməti yüklənmədi. Zəhmət olmasa bir neçə saniyə gözləyin.");
+                }
+            });
+        }
+
+        /* SCROLL REVEAL ANIMATIONS */
+        var revealObs = new IntersectionObserver(function(entries) {
+            entries.forEach(function(entry) {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add("active");
+                }
+            });
+        }, { threshold: 0.1, rootMargin: "0px 0px -50px 0px" });
+
+        document.querySelectorAll(".scroll-reveal").forEach(function(el) {
+            revealObs.observe(el);
+        });
 
         /* SMOOTH SCROLL */
         document.querySelectorAll('a[href^="#"]').forEach(function(a) {
