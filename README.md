@@ -3,11 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Əkbər Mahmudov - Proqramçı & Rəqəmsal Həllər Mütəxəssisi. Şəxsi portfolio saytı.">
-    <meta name="author" content="Əkbər Mahmudov">
     <title>Əkbər Mahmudov | Şəxsi Sayt</title>
-    <link rel="icon" type="image/x-icon" href="https://avatars.githubusercontent.com/u/261281142?v=4">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
         /* ===== RESET & GLOBAL ===== */
@@ -19,7 +16,6 @@
 
         html {
             scroll-behavior: smooth;
-            scroll-padding-top: 80px;
         }
 
         body {
@@ -27,13 +23,6 @@
             background: #0a0a0a;
             color: #f0f0f0;
             overflow-x: hidden;
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
-        }
-
-        ::selection {
-            background: rgba(0, 212, 255, 0.3);
-            color: #fff;
         }
 
         /* ===== ANIMATED BACKGROUND PARTICLES ===== */
@@ -74,39 +63,6 @@
             }
         }
 
-        /* ===== PRELOADER ===== */
-        .preloader {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: #0a0a0a;
-            z-index: 9999;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: opacity 0.5s ease, visibility 0.5s ease;
-        }
-
-        .preloader.hidden {
-            opacity: 0;
-            visibility: hidden;
-        }
-
-        .preloader-spinner {
-            width: 50px;
-            height: 50px;
-            border: 3px solid rgba(0, 212, 255, 0.1);
-            border-top-color: #00d4ff;
-            border-radius: 50%;
-            animation: spin 0.8s linear infinite;
-        }
-
-        @keyframes spin {
-            to { transform: rotate(360deg); }
-        }
-
         /* ===== NAVBAR ===== */
         .navbar {
             position: fixed;
@@ -120,7 +76,6 @@
             align-items: center;
             background: rgba(10, 10, 10, 0.85);
             backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
             border-bottom: 1px solid rgba(0, 212, 255, 0.1);
             transition: all 0.3s ease;
         }
@@ -140,7 +95,6 @@
             background-clip: text;
             cursor: pointer;
             transition: transform 0.3s ease;
-            user-select: none;
         }
 
         .nav-logo:hover {
@@ -177,22 +131,15 @@
             color: #00d4ff;
         }
 
-        .nav-links a:hover::after,
-        .nav-links a.active::after {
+        .nav-links a:hover::after {
             width: 100%;
-        }
-
-        .nav-links a.active {
-            color: #00d4ff;
         }
 
         .hamburger {
             display: none;
             flex-direction: column;
             cursor: pointer;
-            gap: 6px;
-            padding: 5px;
-            z-index: 1001;
+            gap: 5px;
         }
 
         .hamburger span {
@@ -201,20 +148,6 @@
             background: #00d4ff;
             border-radius: 2px;
             transition: all 0.3s ease;
-            transform-origin: center;
-        }
-
-        .hamburger.active span:nth-child(1) {
-            transform: rotate(45deg) translate(6px, 6px);
-        }
-
-        .hamburger.active span:nth-child(2) {
-            opacity: 0;
-            transform: scaleX(0);
-        }
-
-        .hamburger.active span:nth-child(3) {
-            transform: rotate(-45deg) translate(7px, -7px);
         }
 
         /* ===== HERO SECTION ===== */
@@ -231,15 +164,14 @@
         .hero-container {
             display: flex;
             align-items: center;
-            justify-content: center;
+            justify-content: space-between;
             max-width: 1200px;
             width: 100%;
-            gap: 80px;
+            gap: 60px;
         }
 
         .hero-text {
             flex: 1;
-            max-width: 600px;
         }
 
         .hero-text .greeting {
@@ -256,7 +188,7 @@
         .hero-text h1 {
             font-size: 3.5rem;
             font-weight: 900;
-            line-height: 1.15;
+            line-height: 1.1;
             margin-bottom: 10px;
             animation: slideInLeft 0.8s ease 0.2s forwards;
             opacity: 0;
@@ -281,7 +213,7 @@
             font-size: 1.2rem;
             color: #00d4ff;
             margin-bottom: 35px;
-            min-height: 35px;
+            min-height: 30px;
             animation: slideInLeft 0.8s ease 0.5s forwards;
             opacity: 0;
         }
@@ -304,7 +236,6 @@
         .hero-buttons {
             display: flex;
             gap: 20px;
-            flex-wrap: wrap;
             animation: slideInLeft 0.8s ease 0.6s forwards;
             opacity: 0;
         }
@@ -319,31 +250,12 @@
             transition: all 0.3s ease;
             position: relative;
             overflow: hidden;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
         }
 
         .btn-primary {
             background: linear-gradient(135deg, #00d4ff, #7b2ff7);
             color: #fff;
             border: none;
-        }
-
-        .btn-primary::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
-            transition: left 0.5s ease;
-        }
-
-        .btn-primary:hover::before {
-            left: 100%;
         }
 
         .btn-primary:hover {
@@ -363,12 +275,9 @@
             box-shadow: 0 10px 40px rgba(0, 212, 255, 0.2);
         }
 
-        /* Hero Image - FİXED SİMMETRİK */
+        /* Hero Image */
         .hero-image {
             flex: 0 0 auto;
-            display: flex;
-            align-items: center;
-            justify-content: center;
             animation: slideInRight 0.8s ease 0.3s forwards;
             opacity: 0;
         }
@@ -377,25 +286,26 @@
             position: relative;
             width: 320px;
             height: 320px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
         }
 
-        .profile-pic-border {
+        .profile-pic-wrapper::before {
+            content: '';
             position: absolute;
             inset: -8px;
             border-radius: 50%;
             background: conic-gradient(#00d4ff, #7b2ff7, #ff2d95, #00d4ff);
             animation: rotateBorder 4s linear infinite;
+            z-index: -1;
         }
 
-        .profile-pic-border-outer {
+        .profile-pic-wrapper::after {
+            content: '';
             position: absolute;
-            inset: -22px;
+            inset: -20px;
             border-radius: 50%;
             background: conic-gradient(transparent 60%, rgba(0, 212, 255, 0.15));
             animation: rotateBorder 6s linear infinite reverse;
+            z-index: -2;
         }
 
         @keyframes rotateBorder {
@@ -404,13 +314,11 @@
         }
 
         .profile-pic {
-            position: relative;
             width: 320px;
             height: 320px;
             border-radius: 50%;
             object-fit: cover;
             border: 5px solid #0a0a0a;
-            z-index: 2;
             transition: transform 0.5s ease;
         }
 
@@ -456,7 +364,7 @@
             width: 80px;
             height: 4px;
             background: linear-gradient(135deg, #00d4ff, #7b2ff7);
-            margin: 15px auto 20px;
+            margin: 15px auto 0;
             border-radius: 2px;
         }
 
@@ -494,17 +402,15 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
-            display: block;
         }
 
-        .about-img-overlay {
+        .about-img-box::after {
+            content: '';
             position: absolute;
             inset: 0;
-            border-radius: 20px;
             border: 3px solid transparent;
-            background: linear-gradient(#0a0a0a, #0a0a0a) padding-box,
-                        linear-gradient(135deg, #00d4ff, #7b2ff7) border-box;
-            pointer-events: none;
+            border-image: linear-gradient(135deg, #00d4ff, #7b2ff7) 1;
+            border-radius: 20px;
         }
 
         .about-img-glow {
@@ -607,7 +513,6 @@
             -webkit-text-fill-color: transparent;
             background-clip: text;
             transition: transform 0.3s ease;
-            display: block;
         }
 
         .skill-card:hover i {
@@ -642,7 +547,6 @@
             transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             position: relative;
             overflow: hidden;
-            will-change: transform;
         }
 
         .service-card::before {
@@ -654,7 +558,6 @@
             height: 3px;
             background: linear-gradient(90deg, #00d4ff, #7b2ff7, #ff2d95);
             transform: scaleX(0);
-            transform-origin: left;
             transition: transform 0.4s ease;
         }
 
@@ -724,8 +627,6 @@
             border: 1px solid rgba(0, 212, 255, 0.08);
             border-radius: 15px;
             transition: all 0.3s ease;
-            text-decoration: none;
-            color: inherit;
         }
 
         .contact-item:hover {
@@ -737,7 +638,6 @@
         .contact-item i {
             font-size: 1.5rem;
             color: #00d4ff;
-            flex-shrink: 0;
         }
 
         .contact-item div span {
@@ -749,7 +649,6 @@
         .contact-item div p {
             font-size: 0.95rem;
             color: #ddd;
-            margin: 0;
         }
 
         .contact-form {
@@ -798,36 +697,6 @@
             gap: 20px;
         }
 
-        .btn-submit {
-            width: 100%;
-            padding: 16px 35px;
-            border-radius: 50px;
-            font-size: 0.95rem;
-            font-weight: 600;
-            cursor: pointer;
-            text-decoration: none;
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
-            background: linear-gradient(135deg, #00d4ff, #7b2ff7);
-            color: #fff;
-            border: none;
-            font-family: 'Poppins', sans-serif;
-        }
-
-        .btn-submit:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 40px rgba(0, 212, 255, 0.4);
-        }
-
-        .btn-submit.success {
-            background: linear-gradient(135deg, #00c851, #007e33);
-        }
-
         /* ===== SOCIAL LINKS ===== */
         .social-links {
             display: flex;
@@ -867,7 +736,6 @@
             border-top: 1px solid rgba(0, 212, 255, 0.1);
             background: rgba(5, 5, 5, 0.8);
             backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
         }
 
         .footer-content {
@@ -928,7 +796,6 @@
             color: #00d4ff;
             border-color: #00d4ff;
             transform: translateY(-3px);
-            box-shadow: 0 5px 15px rgba(0, 212, 255, 0.2);
         }
 
         .footer-bottom {
@@ -941,7 +808,6 @@
         .footer-bottom p {
             color: #555;
             font-size: 0.85rem;
-            margin-bottom: 10px;
         }
 
         .footer-bottom .heart {
@@ -952,7 +818,7 @@
 
         @keyframes heartBeat {
             0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.3); }
+            50% { transform: scale(1.2); }
         }
 
         .copyright-badge {
@@ -961,26 +827,15 @@
             gap: 8px;
             background: rgba(0, 212, 255, 0.05);
             border: 1px solid rgba(0, 212, 255, 0.1);
-            padding: 10px 24px;
+            padding: 8px 20px;
             border-radius: 50px;
+            margin-top: 10px;
             font-size: 0.8rem;
             color: #666;
-            transition: all 0.3s ease;
-        }
-
-        .copyright-badge:hover {
-            border-color: rgba(0, 212, 255, 0.3);
-            background: rgba(0, 212, 255, 0.08);
         }
 
         .copyright-badge i {
             color: #00d4ff;
-            animation: shieldPulse 2s ease infinite;
-        }
-
-        @keyframes shieldPulse {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0.5; }
         }
 
         /* ===== SCROLL TO TOP ===== */
@@ -1004,7 +859,6 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            box-shadow: 0 5px 20px rgba(0, 212, 255, 0.3);
         }
 
         .scroll-top.visible {
@@ -1015,7 +869,7 @@
 
         .scroll-top:hover {
             transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(0, 212, 255, 0.5);
+            box-shadow: 0 10px 30px rgba(0, 212, 255, 0.4);
         }
 
         /* ===== ANIMATIONS ===== */
@@ -1041,6 +895,17 @@
             }
         }
 
+        @keyframes fadeInUp {
+            from {
+                transform: translateY(40px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
         .animate-on-scroll {
             opacity: 0;
             transform: translateY(40px);
@@ -1052,20 +917,25 @@
             transform: translateY(0);
         }
 
+        /* ===== GLOW EFFECTS ===== */
+        .glow-line {
+            position: absolute;
+            width: 200px;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #00d4ff, transparent);
+            animation: glowMove 3s ease-in-out infinite;
+        }
+
+        @keyframes glowMove {
+            0%, 100% { transform: translateX(-100px); opacity: 0; }
+            50% { transform: translateX(100px); opacity: 1; }
+        }
+
         /* ===== RESPONSIVE ===== */
         @media (max-width: 992px) {
-            .hero {
-                padding: 120px 30px 80px;
-            }
-
             .hero-container {
                 flex-direction: column-reverse;
                 text-align: center;
-                gap: 50px;
-            }
-
-            .hero-text {
-                max-width: 100%;
             }
 
             .hero-text h1 {
@@ -1083,37 +953,26 @@
             .about-container {
                 flex-direction: column;
                 text-align: center;
-                gap: 50px;
             }
 
             .about-image {
                 flex: 0 0 auto;
             }
 
-            .about-img-box {
-                width: 300px;
-                height: 350px;
-                margin: 0 auto;
-            }
-
             .profile-pic-wrapper {
-                width: 260px;
-                height: 260px;
+                width: 250px;
+                height: 250px;
             }
 
             .profile-pic {
-                width: 260px;
-                height: 260px;
+                width: 250px;
+                height: 250px;
             }
         }
 
         @media (max-width: 768px) {
             .navbar {
                 padding: 15px 25px;
-            }
-
-            .navbar.scrolled {
-                padding: 10px 25px;
             }
 
             .nav-links {
@@ -1123,29 +982,14 @@
                 left: 0;
                 right: 0;
                 background: rgba(10, 10, 10, 0.98);
-                backdrop-filter: blur(20px);
-                -webkit-backdrop-filter: blur(20px);
                 flex-direction: column;
-                padding: 25px 30px;
-                gap: 18px;
+                padding: 20px;
+                gap: 15px;
                 border-bottom: 1px solid rgba(0, 212, 255, 0.1);
-                animation: none;
             }
 
             .nav-links.active {
                 display: flex;
-                animation: fadeInDown 0.3s ease;
-            }
-
-            @keyframes fadeInDown {
-                from {
-                    opacity: 0;
-                    transform: translateY(-10px);
-                }
-                to {
-                    opacity: 1;
-                    transform: translateY(0);
-                }
             }
 
             .hamburger {
@@ -1153,7 +997,7 @@
             }
 
             section {
-                padding: 70px 20px;
+                padding: 60px 20px;
             }
 
             .hero {
@@ -1190,10 +1034,6 @@
                 flex-wrap: wrap;
                 justify-content: center;
             }
-
-            footer {
-                padding: 40px 25px 25px;
-            }
         }
 
         @media (max-width: 480px) {
@@ -1203,6 +1043,10 @@
 
             .hero-text .tagline {
                 font-size: 1rem;
+            }
+
+            .about-stats {
+                grid-template-columns: 1fr 1fr 1fr;
             }
 
             .stat-number {
@@ -1218,37 +1062,17 @@
                 width: 200px;
                 height: 200px;
             }
-
-            .about-img-box {
-                width: 250px;
-                height: 300px;
-            }
-
-            .hero-buttons {
-                flex-direction: column;
-                align-items: center;
-            }
-
-            .btn {
-                width: 100%;
-                max-width: 250px;
-            }
         }
     </style>
 </head>
 <body>
-
-    <!-- Preloader -->
-    <div class="preloader" id="preloader">
-        <div class="preloader-spinner"></div>
-    </div>
 
     <!-- Animated Particles Background -->
     <div class="particles" id="particles"></div>
 
     <!-- Navbar -->
     <nav class="navbar" id="navbar">
-        <div class="nav-logo" onclick="scrollToTop()">ƏM</div>
+        <div class="nav-logo">ƏM</div>
         <ul class="nav-links" id="navLinks">
             <li><a href="#hero">Ana Səhifə</a></li>
             <li><a href="#about">Haqqımda</a></li>
@@ -1269,38 +1093,32 @@
             <div class="hero-text">
                 <p class="greeting">👋 Salam, mən</p>
                 <h1>Əkbər <span class="highlight">Mahmudov</span></h1>
-                <p class="tagline">Proqramçı &amp; Rəqəmsal Həllər Mütəxəssisi</p>
+                <p class="tagline">Proqramçı & Rəqəmsal Həllər Mütəxəssisi</p>
                 <div class="typed-text">
                     <span id="typed-output"></span><span class="cursor"></span>
                 </div>
                 <div class="hero-buttons">
-                    <a href="#contact" class="btn btn-primary">
-                        <i class="fas fa-paper-plane"></i> Əlaqə Saxla
-                    </a>
-                    <a href="#about" class="btn btn-outline">
-                        <i class="fas fa-user"></i> Daha Çox
-                    </a>
+                    <a href="#contact" class="btn btn-primary">Əlaqə Saxla</a>
+                    <a href="#about" class="btn btn-outline">Daha Çox</a>
                 </div>
                 <div class="social-links">
-                    <a href="https://github.com/ekbermahmudow" target="_blank" rel="noopener noreferrer" class="social-link" title="GitHub" aria-label="GitHub">
+                    <a href="https://github.com/ekbermahmudow" target="_blank" class="social-link" title="GitHub">
                         <i class="fab fa-github"></i>
                     </a>
-                    <a href="#" class="social-link" title="LinkedIn" aria-label="LinkedIn">
+                    <a href="#" class="social-link" title="LinkedIn">
                         <i class="fab fa-linkedin-in"></i>
                     </a>
-                    <a href="#" class="social-link" title="Instagram" aria-label="Instagram">
+                    <a href="#" class="social-link" title="Instagram">
                         <i class="fab fa-instagram"></i>
                     </a>
-                    <a href="#" class="social-link" title="Telegram" aria-label="Telegram">
+                    <a href="#" class="social-link" title="Telegram">
                         <i class="fab fa-telegram-plane"></i>
                     </a>
                 </div>
             </div>
             <div class="hero-image">
                 <div class="profile-pic-wrapper">
-                    <div class="profile-pic-border-outer"></div>
-                    <div class="profile-pic-border"></div>
-                    <img src="https://avatars.githubusercontent.com/u/261281142?v=4" alt="Əkbər Mahmudov" class="profile-pic" loading="eager">
+                    <img src="https://avatars.githubusercontent.com/u/261281142?v=4" alt="Əkbər Mahmudov" class="profile-pic">
                 </div>
             </div>
         </div>
@@ -1316,34 +1134,33 @@
         <div class="about-container">
             <div class="about-image animate-on-scroll">
                 <div class="about-img-box">
-                    <img src="https://avatars.githubusercontent.com/u/261281142?v=4" alt="Əkbər Mahmudov" loading="lazy">
-                    <div class="about-img-overlay"></div>
+                    <img src="https://avatars.githubusercontent.com/u/261281142?v=4" alt="Əkbər Mahmudov">
                     <div class="about-img-glow"></div>
                 </div>
             </div>
             <div class="about-content animate-on-scroll">
                 <h3>Əkbər Mahmudov</h3>
                 <p>
-                    Mən texnologiyaya həvəsli, yaradıcı və daim inkişaf edən bir proqramçıyam.
-                    Müasir veb texnologiyalar, proqramlaşdırma dilləri və rəqəmsal həllər sahəsində
+                    Mən texnologiyaya həvəsli, yaradıcı və daim inkişaf edən bir proqramçıyam. 
+                    Müasir veb texnologiyalar, proqramlaşdırma dilləri və rəqəmsal həllər sahəsində 
                     dərin biliklərə sahibəm.
                 </p>
                 <p>
-                    Hər bir layihəyə unikal yanaşma ilə yanaşır, keyfiyyətli və istifadəçi dostu
-                    məhsullar yaratmağa çalışıram. Komanda işinə böyük dəyər verir, yeni
+                    Hər bir layihəyə unikal yanaşma ilə yanaşır, keyfiyyətli və istifadəçi dostu 
+                    məhsullar yaratmağa çalışıram. Komanda işinə böyük dəyər verir, yeni 
                     texnologiyaları öyrənməkdən həzz alıram.
                 </p>
                 <div class="about-stats">
                     <div class="stat-item">
-                        <div class="stat-number" data-count="50">0+</div>
+                        <div class="stat-number" data-count="50">0</div>
                         <div class="stat-label">Layihə</div>
                     </div>
                     <div class="stat-item">
-                        <div class="stat-number" data-count="30">0+</div>
+                        <div class="stat-number" data-count="30">0</div>
                         <div class="stat-label">Müştəri</div>
                     </div>
                     <div class="stat-item">
-                        <div class="stat-number" data-count="3">0+</div>
+                        <div class="stat-number" data-count="3">0</div>
                         <div class="stat-label">İl Təcrübə</div>
                     </div>
                 </div>
@@ -1486,21 +1303,21 @@
                         <p>info@ekber.dev</p>
                     </div>
                 </div>
-                <a href="https://github.com/ekbermahmudow" target="_blank" rel="noopener noreferrer" class="contact-item">
+                <div class="contact-item">
                     <i class="fab fa-github"></i>
                     <div>
                         <span>GitHub</span>
                         <p>@ekbermahmudow</p>
                     </div>
-                </a>
+                </div>
             </div>
-            <form class="contact-form animate-on-scroll" id="contactForm">
+            <form class="contact-form animate-on-scroll" onsubmit="handleSubmit(event)">
                 <div class="form-row">
                     <div class="form-group">
-                        <input type="text" placeholder="Adınız" required autocomplete="name">
+                        <input type="text" placeholder="Adınız" required>
                     </div>
                     <div class="form-group">
-                        <input type="email" placeholder="E-poçtunuz" required autocomplete="email">
+                        <input type="email" placeholder="E-poçtunuz" required>
                     </div>
                 </div>
                 <div class="form-group">
@@ -1509,8 +1326,8 @@
                 <div class="form-group">
                     <textarea placeholder="Mesajınız..." required></textarea>
                 </div>
-                <button type="submit" class="btn-submit" id="submitBtn">
-                    <i class="fas fa-paper-plane"></i> Mesaj Göndər
+                <button type="submit" class="btn btn-primary" style="width: 100%; text-align: center;">
+                    <i class="fas fa-paper-plane"></i>&nbsp; Mesaj Göndər
                 </button>
             </form>
         </div>
@@ -1527,148 +1344,119 @@
                 <li><a href="#contact">Əlaqə</a></li>
             </ul>
             <div class="footer-social">
-                <a href="https://github.com/ekbermahmudow" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><i class="fab fa-github"></i></a>
-                <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-                <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-                <a href="#" aria-label="Telegram"><i class="fab fa-telegram-plane"></i></a>
+                <a href="https://github.com/ekbermahmudow" target="_blank"><i class="fab fa-github"></i></a>
+                <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-telegram-plane"></i></a>
             </div>
         </div>
         <div class="footer-bottom">
-            <p><span class="heart">❤️</span> ilə hazırlanıb | Əkbər Mahmudov</p>
+            <p>
+                <span class="heart">❤️</span> ilə hazırlanıb | Əkbər Mahmudov
+            </p>
             <div class="copyright-badge">
                 <i class="fas fa-shield-alt"></i>
-                © 2024–2026 Əkbər Mahmudov. Bütün hüquqlar qorunur.
+                © 2024 - 2026 Əkbər Mahmudov. Bütün hüquqlar qorunur.
             </div>
         </div>
     </footer>
 
     <!-- Scroll to Top Button -->
-    <button class="scroll-top" id="scrollTop" onclick="scrollToTop()" aria-label="Yuxarı qayıt">
+    <button class="scroll-top" id="scrollTop" onclick="scrollToTop()">
         <i class="fas fa-chevron-up"></i>
     </button>
 
     <script>
-        // ===== PRELOADER =====
-        window.addEventListener('load', function() {
-            var preloader = document.getElementById('preloader');
-            preloader.classList.add('hidden');
-            setTimeout(function() {
-                preloader.style.display = 'none';
-            }, 500);
-        });
-
         // ===== PARTICLES BACKGROUND =====
-        (function createParticles() {
-            var container = document.getElementById('particles');
-            if (!container) return;
-            var particleCount = 50;
-            var colors = [
-                'rgba(0, 212, 255, 0.4)',
-                'rgba(123, 47, 247, 0.4)',
-                'rgba(255, 45, 149, 0.3)'
-            ];
+        function createParticles() {
+            const container = document.getElementById('particles');
+            const particleCount = 50;
 
-            for (var i = 0; i < particleCount; i++) {
-                var particle = document.createElement('div');
-                particle.className = 'particle';
-                var size = (Math.random() * 4 + 2) + 'px';
-                particle.style.left = (Math.random() * 100) + '%';
-                particle.style.width = size;
-                particle.style.height = size;
-                particle.style.animationDuration = (Math.random() * 15 + 10) + 's';
-                particle.style.animationDelay = (Math.random() * 10) + 's';
-                particle.style.opacity = String(Math.random() * 0.5 + 0.1);
+            for (let i = 0; i < particleCount; i++) {
+                const particle = document.createElement('div');
+                particle.classList.add('particle');
+                particle.style.left = Math.random() * 100 + '%';
+                particle.style.width = Math.random() * 4 + 2 + 'px';
+                particle.style.height = particle.style.width;
+                particle.style.animationDuration = Math.random() * 15 + 10 + 's';
+                particle.style.animationDelay = Math.random() * 10 + 's';
+                particle.style.opacity = Math.random() * 0.5 + 0.1;
+
+                const colors = ['rgba(0, 212, 255, 0.4)', 'rgba(123, 47, 247, 0.4)', 'rgba(255, 45, 149, 0.3)'];
                 particle.style.background = colors[Math.floor(Math.random() * colors.length)];
+
                 container.appendChild(particle);
             }
-        })();
+        }
+        createParticles();
 
         // ===== TYPING EFFECT =====
-        (function initTyping() {
-            var phrases = [
-                'Veb Developer 💻',
-                'Proqramçı 🚀',
-                'UI/UX Dizayner 🎨',
-                'Texnologiya Həvəskarı ⚡',
-                'Problem Həll Edən 🧩'
-            ];
-            var phraseIndex = 0;
-            var charIndex = 0;
-            var isDeleting = false;
-            var typedOutput = document.getElementById('typed-output');
+        const phrases = [
+            'Veb Developer 💻',
+            'Proqramçı 🚀',
+            'UI/UX Dizayner 🎨',
+            'Texnologiya Həvəskarı ⚡',
+            'Problem Həll Edən 🧩'
+        ];
+        let phraseIndex = 0;
+        let charIndex = 0;
+        let isDeleting = false;
+        const typedOutput = document.getElementById('typed-output');
 
-            if (!typedOutput) return;
+        function type() {
+            const currentPhrase = phrases[phraseIndex];
 
-            function type() {
-                var currentPhrase = phrases[phraseIndex];
-                var typeSpeed;
-
-                if (isDeleting) {
-                    charIndex--;
-                    typedOutput.textContent = currentPhrase.substring(0, charIndex);
-                    typeSpeed = 40;
-                } else {
-                    charIndex++;
-                    typedOutput.textContent = currentPhrase.substring(0, charIndex);
-                    typeSpeed = 100;
-                }
-
-                if (!isDeleting && charIndex === currentPhrase.length) {
-                    typeSpeed = 2000;
-                    isDeleting = true;
-                } else if (isDeleting && charIndex === 0) {
-                    isDeleting = false;
-                    phraseIndex = (phraseIndex + 1) % phrases.length;
-                    typeSpeed = 400;
-                }
-
-                setTimeout(type, typeSpeed);
+            if (isDeleting) {
+                typedOutput.textContent = currentPhrase.substring(0, charIndex - 1);
+                charIndex--;
+            } else {
+                typedOutput.textContent = currentPhrase.substring(0, charIndex + 1);
+                charIndex++;
             }
 
-            type();
-        })();
+            let typeSpeed = isDeleting ? 50 : 100;
+
+            if (!isDeleting && charIndex === currentPhrase.length) {
+                typeSpeed = 2000;
+                isDeleting = true;
+            } else if (isDeleting && charIndex === 0) {
+                isDeleting = false;
+                phraseIndex = (phraseIndex + 1) % phrases.length;
+                typeSpeed = 500;
+            }
+
+            setTimeout(type, typeSpeed);
+        }
+        type();
 
         // ===== NAVBAR SCROLL EFFECT =====
-        var navbar = document.getElementById('navbar');
-        var scrollTopBtn = document.getElementById('scrollTop');
-
-        window.addEventListener('scroll', function() {
+        window.addEventListener('scroll', () => {
+            const navbar = document.getElementById('navbar');
             if (window.scrollY > 50) {
                 navbar.classList.add('scrolled');
             } else {
                 navbar.classList.remove('scrolled');
             }
 
+            // Scroll to top button
+            const scrollTop = document.getElementById('scrollTop');
             if (window.scrollY > 400) {
-                scrollTopBtn.classList.add('visible');
+                scrollTop.classList.add('visible');
             } else {
-                scrollTopBtn.classList.remove('visible');
+                scrollTop.classList.remove('visible');
             }
-        }, { passive: true });
+        });
 
         // ===== HAMBURGER MENU =====
-        var hamburger = document.getElementById('hamburger');
-        var navLinks = document.getElementById('navLinks');
-
         function toggleMenu() {
-            hamburger.classList.toggle('active');
-            navLinks.classList.toggle('active');
+            document.getElementById('navLinks').classList.toggle('active');
         }
 
         // Close mobile menu on link click
-        document.querySelectorAll('.nav-links a').forEach(function(link) {
-            link.addEventListener('click', function() {
-                hamburger.classList.remove('active');
-                navLinks.classList.remove('active');
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                document.getElementById('navLinks').classList.remove('active');
             });
-        });
-
-        // Close menu on outside click
-        document.addEventListener('click', function(e) {
-            if (!navbar.contains(e.target) && navLinks.classList.contains('active')) {
-                hamburger.classList.remove('active');
-                navLinks.classList.remove('active');
-            }
         });
 
         // ===== SCROLL TO TOP =====
@@ -1677,13 +1465,120 @@
         }
 
         // ===== SCROLL ANIMATIONS =====
-        var observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -30px 0px'
+        const observerOptions = {
+            threshold: 0.15,
+            rootMargin: '0px 0px -50px 0px'
         };
 
-        var scrollObserver = new IntersectionObserver(function(entries) {
-            entries.forEach(function(entry) {
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry, index) => {
                 if (entry.isIntersecting) {
-                    entry.target.classList.add('animated');
-                    scrollOb
+                    setTimeout(() => {
+                        entry.target.classList.add('animated');
+                    }, index * 100);
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.animate-on-scroll').forEach(el => {
+            observer.observe(el);
+        });
+
+        // ===== COUNTER ANIMATION =====
+        function animateCounters() {
+            const counters = document.querySelectorAll('.stat-number');
+            counters.forEach(counter => {
+                const target = parseInt(counter.getAttribute('data-count'));
+                const increment = target / 60;
+                let current = 0;
+
+                const updateCounter = () => {
+                    if (current < target) {
+                        current += increment;
+                        counter.textContent = Math.ceil(current) + '+';
+                        requestAnimationFrame(updateCounter);
+                    } else {
+                        counter.textContent = target + '+';
+                    }
+                };
+                updateCounter();
+            });
+        }
+
+        // Trigger counter when about section is visible
+        const aboutSection = document.getElementById('about');
+        const counterObserver = new IntersectionObserver((entries) => {
+            if (entries[0].isIntersecting) {
+                animateCounters();
+                counterObserver.unobserve(aboutSection);
+            }
+        }, { threshold: 0.3 });
+        counterObserver.observe(aboutSection);
+
+        // ===== FORM SUBMIT =====
+        function handleSubmit(e) {
+            e.preventDefault();
+            const btn = e.target.querySelector('button');
+            btn.innerHTML = '<i class="fas fa-check"></i>&nbsp; Göndərildi!';
+            btn.style.background = 'linear-gradient(135deg, #00c851, #007e33)';
+            setTimeout(() => {
+                btn.innerHTML = '<i class="fas fa-paper-plane"></i>&nbsp; Mesaj Göndər';
+                btn.style.background = 'linear-gradient(135deg, #00d4ff, #7b2ff7)';
+                e.target.reset();
+            }, 3000);
+        }
+
+        // ===== SMOOTH SCROLL FOR NAV LINKS =====
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+
+        // ===== TILT EFFECT ON SERVICE CARDS =====
+        document.querySelectorAll('.service-card').forEach(card => {
+            card.addEventListener('mousemove', (e) => {
+                const rect = card.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                const centerX = rect.width / 2;
+                const centerY = rect.height / 2;
+                const rotateX = (y - centerY) / 15;
+                const rotateY = (centerX - x) / 15;
+                card.style.transform = `translateY(-10px) perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+            });
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = 'translateY(0) perspective(1000px) rotateX(0) rotateY(0)';
+            });
+        });
+
+        // ===== ACTIVE NAV LINK ON SCROLL =====
+        const sections = document.querySelectorAll('section');
+        const navLinks = document.querySelectorAll('.nav-links a');
+
+        window.addEventListener('scroll', () => {
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (scrollY >= sectionTop - 200) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.style.color = '#ccc';
+                if (link.getAttribute('href') === '#' + current) {
+                    link.style.color = '#00d4ff';
+                }
+            });
+        });
+    </script>
+
+</body>
+</html>
